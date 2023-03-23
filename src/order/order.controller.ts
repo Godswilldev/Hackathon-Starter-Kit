@@ -55,6 +55,12 @@ export class OrderController {
     return await this.orderService.findOne(id);
   }
 
+  @Get("user/me")
+  @ApiOkResponse({ description: "Order retrieved successfully", type: OrderDto })
+  async findUserOrders(@Session() { passport }: any): Promise<StandardResponse<OrderDto>> {
+    return await this.orderService.findUserOrders(passport.user.id);
+  }
+
   @Patch(":id")
   @ApiOkResponse({ description: "Order Updated successfully", type: UpdateOrderDto })
   @Roles(Role.Admin, Role.Manager)

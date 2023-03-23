@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { Repository, In } from "typeorm";
 import { Injectable } from "@nestjs/common";
 import { Guard } from "src/utils/guard.utils";
 import { InjectRepository } from "@nestjs/typeorm";
@@ -68,6 +68,17 @@ export class OrderService {
       status: "success",
       code: 200,
       message: "Order retrieved Successfully",
+      data: order,
+    });
+  }
+
+  async findUserOrders(id: string): Promise<StandardResponse<any>> {
+    const order = await this.orderRepository.findBy({ user: In([id]) });
+
+    return ResponseManager.StandardResponse({
+      status: "success",
+      code: 200,
+      message: "Orders retrieved Successfully",
       data: order,
     });
   }

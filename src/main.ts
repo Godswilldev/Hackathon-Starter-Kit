@@ -5,12 +5,12 @@ import * as passport from "passport";
 import * as session from "express-session";
 import { AppModule } from "src/app.module";
 import * as compression from "compression";
-import { NestFactory, Reflector } from "@nestjs/core";
 import * as cookieParser from "cookie-parser";
 import { TypeormStore } from "connect-typeorm";
+import { NestFactory, Reflector } from "@nestjs/core";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
-import { ClassSerializerInterceptor, INestApplication, ValidationPipe } from "@nestjs/common";
 import { GlobalErrorHandler } from "src/utils/all-exception-filter";
+import { ClassSerializerInterceptor, INestApplication, ValidationPipe } from "@nestjs/common";
 
 const bootstrap = async () => {
   const app = await NestFactory.create<INestApplication>(AppModule);
