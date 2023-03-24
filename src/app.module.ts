@@ -3,6 +3,7 @@ import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthModule } from "src/auth/auth.module";
+import { ChatModule } from "src/chat/chat.module";
 import { ThrottlerModule } from "@nestjs/throttler";
 import { UsersModule } from "src/users/users.module";
 import { BrandModule } from "src/brand/brand.module";
@@ -38,11 +39,12 @@ import { SubCategory } from "src/subCategory/entities/subCategory.entity";
     }),
 
     AuthModule,
+    ChatModule,
     UsersModule,
-    ReviewsModule,
-    ProductModule,
     BrandModule,
     OrderModule,
+    ReviewsModule,
+    ProductModule,
     CategoryModule,
     SubCategoryModule,
   ],
